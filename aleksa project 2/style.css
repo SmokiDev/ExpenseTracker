@@ -1,0 +1,67 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  font-size: 2rem;
+  background: #00000050;
+}
+
+header, form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+form {
+  min-height: 10vh;
+}
+form, input {
+  font-size: 1.5rem;
+}
+.inputs > label {
+  font-weight: bold;
+}
+.expense-btn {
+  max-width: 7rem;
+  border: none;
+  background: rgb(6, 128, 6);
+  color: #fff;
+  font-size: 1rem;
+  border-radius: 4px;
+  font-weight: bold;
+  margin: 0.5rem;
+  padding: 5px;
+}
+th {
+  width: 11rem;
+  text-align: left;
+  font-size: 1.2rem;
+  background: #fff;
+}
+table, th, td {
+  border: 1px solid #00000030;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+}
+#table-style {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+td {
+  background-color: #fff;
+}
+.remove-btn {
+  background: none;
+  border: none;
+  color: crimson;
+  font-size: 1.7rem;
+  font-weight: bold;
+  padding: 5px;
+}
