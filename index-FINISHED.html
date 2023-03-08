@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense tracker</title>
+    <link rel="stylesheet" href="/style.css" />
+    <script src="/main.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Expense Tracker</h1>
+      <h2>Add a new item:</h2>
+    </header>
+    <form>
+      <div class="inputs">
+        <label>Name:</label>
+        <input type="text" placeholder="Expense?" class="name-input" />
+      </div>
+      <div class="inputs">
+        <label>Date:</label>
+        <input type="date" class="date-input" />
+        <label>Amount:</label>
+        <input type="number" class="number-input" placeholder="How much?" />
+      </div>
+      <button type="submit" class="expense-btn">Add Expense</button>
+    </form>
+    <div id="table-style">
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Date</th>
+          <th>Amount</th>
+          <th></th>
+        </tr>
+      </table>
+    </div>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        min-height: 100vh;
+        font-size: 2rem;
+        background: #00000050;
+      }
+
+      header,
+      form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+      }
+      form {
+        min-height: 10vh;
+      }
+      form,
+      input {
+        font-size: 1.5rem;
+      }
+      .inputs > label {
+        font-weight: bold;
+      }
+      .expense-btn {
+        max-width: 7rem;
+        border: none;
+        background: rgb(6, 128, 6);
+        color: #fff;
+        font-size: 1rem;
+        border-radius: 4px;
+        font-weight: bold;
+        margin: 0.5rem;
+        padding: 5px;
+      }
+      th {
+        width: 11rem;
+        text-align: left;
+        font-size: 1.2rem;
+        background: #fff;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid #00000030;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        padding: 5px;
+      }
+      #table-style {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      td {
+        background-color: #fff;
+      }
+      .remove-btn {
+        background: none;
+        border: none;
+        color: crimson;
+        font-size: 1.7rem;
+        font-weight: bold;
+        padding: 5px;
+      }
+    </style>
+    <script>
+      let nameInput = document.querySelector(".name-input");
+      let dateInput = document.querySelector(".date-input");
+      let numberInput = document.querySelector(".number-input");
+      let expenseBtn = document.querySelector(".expense-btn");
+      let table = document.querySelector("table");
+      expenseBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        const trDiv = document.createElement("tr");
+        const newTdOne = document.createElement("td");
+        newTdOne.innerText = nameInput.value;
+        const newTdTwo = document.createElement("td");
+        newTdTwo.innerText = dateInput.value;
+        const newTdThree = document.createElement("td");
+        newTdThree.innerText = numberInput.value;
+        const removeBtn = document.createElement("td");
+        removeBtn.innerHTML = '<button class="remove-btn">X</button>';
+        trDiv.appendChild(newTdOne);
+        trDiv.appendChild(newTdTwo);
+        trDiv.appendChild(newTdThree);
+        trDiv.appendChild(removeBtn);
+        table.appendChild(trDiv);
+        trDiv.addEventListener("click", () => {
+          trDiv.remove();
+        });
+        nameInput.value = "";
+        dateInput.value = "";
+        numberInput.value = "";
+      });
+    </script>
+  </body>
+</html>
